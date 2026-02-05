@@ -16,7 +16,6 @@ app.post('/api/chat', async (req, res) => {
   const { messages } = req.body;
   console.log('POST /api/chat', { messages });
   try {
-    // Converte UIMessage[] para ModelMessage[]
     const modelMessages = await convertToModelMessages(messages);
     const result = streamText({
       model: openai('gpt-4o'),
